@@ -16,5 +16,3 @@ Route::get('/', function () {
 });
 
 Route::resource('ajax', 'DbCheckController');
-
-Route::post('sohel', 'DbCheckController@index');

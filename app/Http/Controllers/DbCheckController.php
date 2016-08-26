@@ -5,34 +5,30 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use DB; 
+use Illuminate\Support\Facades\DB;
 
 class DbCheckController extends Controller
 {
     
      public function index()
     {
-    	die('sanny');
-    	/*$database_host = '';
-    	$database_user = '';
-    	$database_password = '';
-    	$database_name = '';
-		try{
 
-		$connection = mysqli_connect($database_host,$database_user,$database_password,$database_name);
-		    	if($connection)
-				   {
-				     echo "Connected successfully to database ";
-				   }else{
+    	//die('response from db controller method');
 
-				   	 echo "Connection Error";
-				   }
-		        
-		    }
+		if(DB::connection())
+		{
 
-		catch(Exception $e){
-			echo $e->getMessage();
-		}*/
+            $tables = DB::select('SHOW TABLES');
+            foreach($tables as $table)
+            {
+                echo $table->Tables_in_db_name;
+            }
+
+            //die(json_encode(array('data'=>$tbl)));
+		}else{
+
+			echo "Database Connection Error";
+		}
 
   }
 }
