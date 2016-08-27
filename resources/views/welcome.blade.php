@@ -4,6 +4,7 @@
         <title>Devops Assesment Application</title>
 
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Baloo+Paaji|Raleway|Ubuntu:500" rel="stylesheet">
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -42,14 +43,17 @@
                 color: #666666
             }
             p {
-                font-size: 23px;
-                color: #ededed ;              
+                font-size: 20px;
+                color: #ffffff ;
+                font-family: 'Ubuntu', sans-serif;
+
             }
             #connection_message {
                 margin-top: 10px;
-                font-size: 25px;
+                font-size: 20px;
                 color: red;
                 text-transform: uppercase;
+                font-family: 'Raleway', sans-serif;
             }
 
         </style>
@@ -58,7 +62,7 @@
         <div class="container">
             <div class="content">
                 <div class="title">Hello Telenor Health</div>
-                <button type="button" id="dbconnect" class="btn btn-danger"><p>Database Connection Check</p></button>
+                <button type="button" id="dbconnect" class="btn btn-info"><p>Database Connection Check</p></button>
                 <div id="connection_message"></div>
             </div>
         </div>
