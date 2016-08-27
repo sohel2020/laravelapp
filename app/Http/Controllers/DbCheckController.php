@@ -10,25 +10,25 @@ use Illuminate\Support\Facades\DB;
 class DbCheckController extends Controller
 {
     
-     public function index()
+      public function index()
     {
-
-    	//die('response from db controller method');
-
-		if(DB::connection())
-		{
-
-            $tables = DB::select('SHOW TABLES');
-            foreach($tables as $table)
-            {
-                echo $table->Tables_in_db_name;
+        $data = array('status' => 'failed');
+        try {
+            $db_name = DB::connection()->getDatabaseName();
+            if ($db_name) {
+                $tables = DB::select('SHOW TABLES');
+                $table_list = [];
+                foreach ($tables as $table) {
+                    $table_name = 'Tables_in_' . $db_name;
+                    $table_list = $table->{$table_name};
+                }
+                print_r("Database is connected successfully");
             }
+        } catch (\Exception $ex) {
+            print_r("Opps, Database connection failed");
+            
+        }
 
-            //die(json_encode(array('data'=>$tbl)));
-		}else{
-
-			echo "Database Connection Error";
-		}
-
-  }
+        die();
+    }
 }

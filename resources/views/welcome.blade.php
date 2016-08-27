@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Laravel</title>
+        <title>Devops Assesment Application</title>
 
         <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -43,9 +43,13 @@
             }
             p {
                 font-size: 23px;
-                color: #ededed ;
-
-                
+                color: #ededed ;              
+            }
+            #connection_message {
+                margin-top: 10px;
+                font-size: 25px;
+                color: red;
+                text-transform: uppercase;
             }
 
         </style>
@@ -53,7 +57,7 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">Hello world</div>
+                <div class="title">Hello Telenor Health</div>
                 <button type="button" id="dbconnect" class="btn btn-danger"><p>Database Connection Check</p></button>
                 <div id="connection_message"></div>
             </div>
