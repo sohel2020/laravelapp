@@ -1,27 +1,30 @@
-# Laravel PHP Framework
+# Laravel application inside docker container
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+## What it's contain?
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+- If you need to change any crontab entry, then navigate **docker-configuration** directory and make change inside crontab file.
+- If you need to change SSL certificate, then navigate **docker-configuration** directory and replace old one with your new SSL certificate.
+- If you change SSL certificate then you may need to change nginx configuration so find nginx default server configuration file inside **docker-configuration** directory and make changes accordingly.
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+## How to build docker images?
 
-## Official Documentation
+```bash
+#  docker build -t your_image_name .
+```
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+## What'll happen if your run above command?
 
-## Contributing
+- Pull **sohel2020/laravel-nginx-base** as base image
+- copy nginx and other SSL certificate file
+- copy laravel application under **/var/www/**
+- set crontab entry
+- run compose command to install all dependency
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+## How we can see the visual output?
 
-## Security Vulnerabilities
+After build the images, run it anywhere (In your workstation or server).
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+HIT https://example.com in your favourite browser (But before that make a host file entry in your workstation e.g: **192.168.1.2 example.com**)
 
-## License
+As we're using a self sign certificate, you'll face a browser warning because self sign certificate is not trusted by browser. so trust it manually. 
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
